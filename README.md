@@ -30,7 +30,7 @@ pip install flask flask_cors opencv-python pytesseract pdf2image
 To run the application, navigate to the directory containing the Python script and run the following command:
 
 ```bash
-python app.py
+python ocr_ai_api.py
 ```
 
 The application will start and listen for HTTP requests on port 5000.
