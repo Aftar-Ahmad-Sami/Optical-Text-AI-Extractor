@@ -1,4 +1,4 @@
-# Optical-Text-AI-Extractor-API
+# Optical-Text-AI-Extractor
 
 This Python application is a RESTful API built using Flask. It provides Optical Character Recognition (OCR) services, allowing users to extract text from PDF files and images. The OCR functionality is implemented using the pytesseract library, which is a Python wrapper for Google's Tesseract-OCR Engine.
 
