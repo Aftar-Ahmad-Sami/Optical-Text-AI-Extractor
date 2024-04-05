@@ -39,9 +39,11 @@ The application will start and listen for HTTP requests on port 5000.
 
 - `check_api()`: This function is mapped to the root URL ("/") and returns a message indicating that the API is running.
 
-- `pdf_to_images(pdf_file)`: This function takes a path to a PDF file as input and returns a list of images extracted from the PDF file.
+- `require_api_key(view_function)`: This function is a decorator that checks if the API key in the request header matches the one stored in the environment variables. If not, it aborts the request with a 401 error.
 
-- `perform_ocr(image)`: This function takes an image as input and uses the Tesseract-OCR Engine to extract and return the text from the image.
+- `pdf_to_img(pdf_file)`: This function takes a path to a PDF file as input and returns a list of images extracted from the PDF file.
+
+- `ocr_core(file)`: This function takes an image as input and uses the Tesseract-OCR Engine to extract and return the text from the image.
 
 - `ocr_pdf()`: This function is mapped to the "/pdf" URL and handles POST requests. It receives a PDF file, saves it to a local path, converts the PDF into a list of images, performs OCR on each image using the Tesseract-OCR Engine, and returns the extracted text as a JSON response.
 
@@ -52,3 +54,7 @@ The application will start and listen for HTTP requests on port 5000.
 To extract text from a PDF file, send a POST request to the "/pdf" URL with the PDF file attached. The response will be a JSON object containing the extracted text from each page of the PDF.
 
 To extract text from an image, send a POST request to the "/image" URL with the image file attached. The response will be the extracted text from the image.
+
+## Security
+
+The application uses an API key for authentication. The API key is stored in an environment variable and is required in the header of every request. Unauthorized requests will be rejected with a 401 error.
