@@ -1,7 +1,7 @@
 Flask
 flask-cors
 pdf2image
-dotenv
+python-dotenv
 pytesseract
 opencv-python-headless
 gunicorn
