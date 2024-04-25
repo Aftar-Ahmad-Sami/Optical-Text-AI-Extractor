@@ -4,3 +4,4 @@ pdf2image
 dotenv
 pytesseract
 opencv-python-headless
+gunicorn
