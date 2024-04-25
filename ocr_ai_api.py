@@ -185,6 +185,9 @@ def ocr_image():
     text = ocr_core(img)
     os.remove(image_path)
     return text
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', debug=False)
     
     
 
