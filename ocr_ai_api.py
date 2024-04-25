@@ -37,7 +37,9 @@ def check_api():
     Returns:
         str: A message indicating that the API is running.
     """
-    return 'API is running!!!'
+    return API_KEY
+    # return 'API is running!!!'
+
 
 
 
