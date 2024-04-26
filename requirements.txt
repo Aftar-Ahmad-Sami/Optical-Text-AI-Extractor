@@ -7,5 +7,5 @@ opencv-python-headless
 gunicorn
 numpy
 path
-Werkzeug
 requests
+Werkzeug
