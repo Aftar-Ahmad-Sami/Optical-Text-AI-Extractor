@@ -56,7 +56,7 @@ Using Gunicorn (Does not work in Windows):
 gunicorn -w 4 src.main:app
 ```
 
-The application will start and listen for HTTP requests on port 5000.
+The application will start and listen for HTTP requests on ```http://localhost:8000```
 
 ## Key Functions
 
