@@ -74,7 +74,7 @@ The application will start and listen for HTTP requests on ```http://localhost:8
 
 ## Example Usage
 
-To extract text from a PDF file, send a POST request to the "/pdf" URL with the PDF file attached. The response will be a JSON object containing the extracted text from each page of the PDF.
+To extract text from a PDF file, send a POST request to the "/pdf-base64" URL with the PDF file attached. The response will be a JSON object containing the extracted text from each page of the PDF.
 
 To extract text from an image, send a POST request to the "/image" URL with the image file attached. The response will be the extracted text from the image.
 
