@@ -1,0 +1,11 @@
+Flask
+flask-cors
+pdf2image
+python-dotenv
+pytesseract
+opencv-python-headless
+gunicorn
+numpy
+path
+Werkzeug
+requests

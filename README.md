@@ -12,6 +12,18 @@ The pdf2image library is used to convert PDF files into images for OCR processin
 
 ### Prerequisites
 
+Create a virtual environment:
+
+```bash
+python -m venv myenv
+```
+
+Activate the virtual environment:
+
+```bash
+myenv\Scripts\activate
+```
+
 To run this application, you will need to have the following installed:
 
 - Python 3
@@ -20,19 +32,28 @@ To run this application, you will need to have the following installed:
 - OpenCV (cv2)
 - pytesseract
 - pdf2image
+and others
 
 You can install these using pip:
 
 ```bash
-pip install flask flask_cors opencv-python pytesseract pdf2image
+pip install -r requirements.txt
 ```
 
 ### Running the Application
 
-To run the application, navigate to the directory containing the Python script and run the following command:
+To run the application in production, use the following command:
+
+For Windows:
+```bash
+cd src
+waitress-serve --listen=*:8000 main:app
+```
+
+Using Gunicorn (Does not work in Windows):
 
 ```bash
-python ocr_ai_api.py
+gunicorn -w 4 src.main:app
 ```
 
 The application will start and listen for HTTP requests on port 5000.
@@ -43,11 +64,11 @@ The application will start and listen for HTTP requests on port 5000.
 
 - `require_api_key(view_function)`: This function is a decorator that checks if the API key in the request header matches the one stored in the environment variables. If not, it aborts the request with a 401 error.
 
-- `pdf_to_img(pdf_file)`: This function takes a path to a PDF file as input and returns a list of images extracted from the PDF file.
+- `pdf_to_img_base64(pdf_file)`: This function takes a path to a PDF file in base64 as input and returns a list of images extracted from the PDF file.
 
 - `ocr_core(file)`: This function takes an image as input and uses the Tesseract-OCR Engine to extract and return the text from the image.
 
-- `ocr_pdf()`: This function is mapped to the "/pdf" URL and handles POST requests. It receives a PDF file, saves it to a local path, converts the PDF into a list of images, performs OCR on each image using the Tesseract-OCR Engine, and returns the extracted text as a JSON response.
+- `ocr_pdf_base64()`: This function is mapped to the "/pdf" URL and handles POST requests. It receives a PDF file, saves it to a local path, converts the PDF into a list of images, performs OCR on each image using the Tesseract-OCR Engine, and returns the extracted text as a JSON response.
 
 - `ocr_image()`: This function is mapped to the "/image" URL and handles POST requests. It receives an image file, saves it to a local path, performs OCR on the image using the Tesseract-OCR Engine, and returns the extracted text.
 
