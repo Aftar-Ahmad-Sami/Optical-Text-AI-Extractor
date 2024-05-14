@@ -20,10 +20,11 @@ def upload_file(api_endpoint: str, file_path: str, api_key: str) -> None:
             response.raise_for_status()
     except requests.exceptions.HTTPError as http_err:
         print(f'HTTP error occurred: {http_err}')
+        break
     except Exception as err:
         print(f'Other error occurred: {err}')
-    else:
-        print("File uploaded successfully. Response:", response.text)
+        break
+    print("File uploaded successfully. Response:", response.text)
 
 # Usage
 api_endpoint = "YOUR_API_ENDPOINT"
