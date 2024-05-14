@@ -1,6 +1,6 @@
 # Optical-Text-AI-Extractor
 
-This Python application is a RESTful API built using Flask. It provides Optical Character Recognition (OCR) services, allowing users to extract text from PDF files and images. The OCR functionality is implemented using the pytesseract library, which is a Python wrapper for Google's Tesseract-OCR Engine, and OpenCV (cv2) for image processing.
+This Python Script is a RESTful API built using Flask. It provides Optical Character Recognition (OCR) services, allowing users to extract text from PDF files and images. The OCR functionality is implemented using the pytesseract library, which is a Python wrapper for Google's Tesseract-OCR Engine, and OpenCV (cv2) for image processing.
 
 OpenCV (Open Source Computer Vision Library) is an open-source computer vision and machine learning software library. OpenCV was built to provide a common infrastructure for computer vision applications and to accelerate the use of machine perception in commercial products. It has C++, Python, Java and MATLAB interfaces and supports Windows, Linux, Android and Mac OS.
 
