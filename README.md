@@ -12,6 +12,8 @@ The pdf2image library is used to convert PDF files into images for OCR processin
 
 ### Prerequisites
 
+#### Windows
+
 Create a virtual environment:
 
 ```bash
@@ -24,6 +26,26 @@ Activate the virtual environment:
 myenv\Scripts\activate
 ```
 
+#### Linux
+
+Install venv
+
+```python
+sudo apt install python3.10-venv
+```
+
+Create a virtual environment:
+
+```bash
+python3 -m venv myenv
+```
+
+Activate the virtual environment:
+
+```bash
+source myenv\bin\activate
+```
+
 To run this application, you will need to have the following installed:
 
 - Python 3
@@ -32,6 +54,8 @@ To run this application, you will need to have the following installed:
 - OpenCV (cv2)
 - pytesseract
 - pdf2image
+- Gunicorn (Linux)
+- Werkzeug (Windows)
 and others
 
 You can install these using pip:
