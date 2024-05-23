@@ -1,6 +1,6 @@
 from functools import wraps
 from flask import request, abort
-from config import settings
+from config.settings import API_KEY
 
 def require_api_key(view_function):
     @wraps(view_function)
@@ -17,7 +17,8 @@ def require_api_key(view_function):
         Raises:
             HTTPException: If the API key is missing or incorrect.
         """
-        if request.headers.get('x-api-key') != settings.API_KEY:
-            abort(401, description="Unauthorized access")
+        print(API_KEY)
+        if request.headers.get('x-api-key') != API_KEY:
+            abort(401, description=API_KEY)
         return view_function(*args, **kwargs)
     return decorated_function

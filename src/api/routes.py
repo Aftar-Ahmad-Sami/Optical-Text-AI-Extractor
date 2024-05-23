@@ -1,7 +1,9 @@
+import traceback
 from flask import Blueprint, request, jsonify, abort
 from .decorators import require_api_key
 from services import ocr_service, pdf_service, image_service
 from config.enum import ErrorMessages, SuccessMessages
+
 
 
 bp = Blueprint('routes', __name__)
@@ -34,9 +36,11 @@ def ocr_pdf_base64():
             abort(400, description="No file found in request")
         images = pdf_service.pdf_to_img_base64(pdf_base64)
         response = {pg+1: ocr_service.ocr_core(img) for pg, img in enumerate(images)}
+        print(response)
         return jsonify(response)
-    except Exception:
-        return jsonify(ErrorMessages.OCR_ERROR.value)
+    except Exception as e:
+        error_traceback = traceback.format_exc()
+        return jsonify({'error': str(e), 'traceback': error_traceback})
 
 @bp.route('/image', methods=['POST'])
 @require_api_key
@@ -54,5 +58,6 @@ def ocr_image():
         image = image_service.image_processing(base64_image)
         text = ocr_service.ocr_core(image)
         return jsonify(text)
-    except Exception:
-        return jsonify(ErrorMessages.OCR_ERROR.value)
+    except Exception as e:
+        error_traceback = traceback.format_exc()
+        return jsonify({'error': str(e), 'traceback': error_traceback})

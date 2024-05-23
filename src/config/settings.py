@@ -9,7 +9,7 @@ def get_base_dir():
     Returns:
         str: The absolute path of the base directory.
     """
-    return os.path.abspath(os.path.dirname(__file__))
+    return os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 def get_env_path():
     """
@@ -38,5 +38,7 @@ load_environment_variables()
 # Get the API key from the environment variables
 API_KEY = os.getenv("API_KEY")
 
-poppler_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'utils','poppler-24.02.0', 'Library', 'bin'))
-pytesseract.pytesseract.tesseract_cmd = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'utils','Tesseract-OCR','tesseract.exe'))
+# LINUX
+poppler_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'utils','poppler-linux', 'bin'))
+pytesseract.pytesseract.tesseract_cmd = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'utils','tesseract-linux', 'bin','tesseract'))
+os.environ['TESSDATA_PREFIX'] = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'utils','tesseract-linux', 'share','tessdata'))
